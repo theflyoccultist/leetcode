@@ -1,3 +1,5 @@
+// Kids With the Greatest Number of Candies
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
