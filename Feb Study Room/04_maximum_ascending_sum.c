@@ -1,3 +1,7 @@
+/* Given an array of positive integers nums, 
+return the maximum possible sum of an ascending subarray in nums.
+*/
+
 int maxAscendingSum(int* nums, int numsSize) {
     int habgye =  nums[0];  // Current sum
     int choego = nums[0];   // Maximum sum
