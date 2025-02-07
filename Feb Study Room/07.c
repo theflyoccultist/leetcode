@@ -56,7 +56,6 @@ int* queryResults(int limit, int** queries, int queriesSize, int* queriesColSize
             if (cnt_entry) {
                 cnt_entry->count--;
                 if (cnt_entry->count == 0) {
-                    // If no balls use this color anymore, remove it
                     HASH_DEL(cnt, cnt_entry);
                     free(cnt_entry);
                 }
