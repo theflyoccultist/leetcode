@@ -29,7 +29,6 @@ int* queryResults(int limit, int** queries, int queriesSize, int* queriesColSize
     struct ball* g_entry;
     struct color_count* cnt_entry;
 
-    // Result array
     int* results = (int*)malloc(queriesSize * sizeof(int));
     if (!results) fail();
 
@@ -68,22 +67,15 @@ int* queryResults(int limit, int** queries, int queriesSize, int* queriesColSize
         }
 
         g_entry->color = color;
-
         int distinct_colors = HASH_COUNT(cnt);
         results[i] = distinct_colors;
     }
 
     struct ball* g_tmp;
-    HASH_ITER(hh, g, g_entry, g_tmp) {
-        HASH_DEL(g, g_entry);
-        free(g_entry);
-    }
+    HASH_ITER(hh, g, g_entry, g_tmp) { HASH_DEL(g, g_entry); free(g_entry); }
 
     struct color_count* cnt_tmp;
-    HASH_ITER(hh, cnt, cnt_entry, cnt_tmp) {
-        HASH_DEL(cnt, cnt_entry);
-        free(cnt_entry);
-    }
+    HASH_ITER(hh, cnt, cnt_entry, cnt_tmp) { HASH_DEL(cnt, cnt_entry); free(cnt_entry); }
 
     *returnSize = queriesSize;
     return results;
